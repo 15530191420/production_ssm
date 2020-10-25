@@ -46,7 +46,6 @@ public class CustomRealm extends AuthorizingRealm {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	@Qualifier("sysService")
 	private SysService sysService;
 	
 	@Autowired

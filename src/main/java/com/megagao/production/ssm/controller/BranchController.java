@@ -31,9 +31,9 @@ public class BranchController {
 	@RequestMapping("/search_branch_by_id")
 	@ResponseBody
 	public EUDataGridResult searchBranchById(Integer page, Integer rows,
-			String searvhValue) throws Exception {
+			String searchValue) throws Exception {
 		EUDataGridResult result = branchService.searchBranchById(page, rows,
-				searvhValue);
+				searchValue);
 		return result;
 	}
 
@@ -41,10 +41,10 @@ public class BranchController {
 	@RequestMapping("/search_branch_by_short_name")
 	@ResponseBody
 	public EUDataGridResult searchBranchByShortName(Integer page, Integer rows,
-			String searvhValue) throws Exception {
-		searvhValue = new String(searvhValue.getBytes("ISO-8859-1"), "UTF-8");
+			String searchValue) throws Exception {
+		searchValue = new String(searchValue.getBytes("ISO-8859-1"), "UTF-8");
 		EUDataGridResult result = branchService.searchBranchByShortName(page,
-				rows, searvhValue);
+				rows, searchValue);
 		return result;
 	}
 
