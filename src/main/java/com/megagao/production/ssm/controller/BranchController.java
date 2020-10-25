@@ -25,5 +25,4 @@ public class BranchController {
 		EUDataGridResult result = branchService.getList(page, rows);
 		return result;
 	}
-        Branch branch = new Branch();
 }
