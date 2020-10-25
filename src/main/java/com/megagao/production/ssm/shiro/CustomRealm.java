@@ -3,12 +3,12 @@ package com.megagao.production.ssm.shiro;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.megagao.production.ssm.domain.authority.SysPermission;
-import com.megagao.production.ssm.domain.authority.SysUser;
-import com.megagao.production.ssm.domain.customize.ActiveUser;
-import com.megagao.production.ssm.domain.vo.RoleVO;
-import com.megagao.production.ssm.service.RoleService;
-import com.megagao.production.ssm.service.SysService;
+
+
+
+
+
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -21,6 +21,15 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+import com.megagao.production.ssm.domain.authority.SysPermission;
+import com.megagao.production.ssm.domain.authority.SysUser;
+import com.megagao.production.ssm.domain.customize.ActiveUser;
+import com.megagao.production.ssm.domain.vo.RoleVO;
+import com.megagao.production.ssm.service.RoleService;
+import com.megagao.production.ssm.service.SysService;
 
 
 /**
@@ -31,11 +40,13 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author  megagao
  * @version  0.0.1
  */
+@Component
 public class CustomRealm extends AuthorizingRealm {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
+	@Qualifier("sysService")
 	private SysService sysService;
 	
 	@Autowired

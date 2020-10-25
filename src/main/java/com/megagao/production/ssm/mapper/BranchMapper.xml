@@ -4,4 +4,13 @@
 	<select id="find" resultType="Branch">
 		select * from t_branch
 	</select>
+	<select id="searchBranchById" resultType="Branch" parameterType="string">
+		select * from t_branch where id like CONCAT('%',#{id},'%')
+	</select>
+	<select id="searchBranchByShortName" resultType="Branch" parameterType="string">
+		select * from t_branch where short_name like CONCAT('%',#{short_name},'%' ) 
+	</select>
+	<select id="searchBranchByName" resultType="Branch" parameterType="string">
+		select * from t_branch where name like CONCAT('%',#{name},'%' ) 
+	</select>
 </mapper>

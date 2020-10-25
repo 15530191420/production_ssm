@@ -13,19 +13,49 @@ import com.megagao.production.ssm.service.BranchService;
 public class BranchController {
 	@Autowired
 	private BranchService branchService;
-	
+
 	@RequestMapping("/find")
-	public String find() throws Exception{
+	public String find() throws Exception {
 		return "branch_list";
 	}
-	
+
 	@RequestMapping("/list")
 	@ResponseBody
-	public EUDataGridResult getList(Integer page,Integer rows) throws Exception {
+	public EUDataGridResult getList(Integer page, Integer rows)
+			throws Exception {
 		EUDataGridResult result = branchService.getList(page, rows);
 		return result;
 	}
-	
-	
-	
+
+	// 根据机构id查找
+	@RequestMapping("/search_branch_by_id")
+	@ResponseBody
+	public EUDataGridResult searchBranchById(Integer page, Integer rows,
+			String searvhValue) throws Exception {
+		EUDataGridResult result = branchService.searchBranchById(page, rows,
+				searvhValue);
+		return result;
+	}
+
+	// 根据机构简称查找
+	@RequestMapping("/search_branch_by_short_name")
+	@ResponseBody
+	public EUDataGridResult searchBranchByShortName(Integer page, Integer rows,
+			String searvhValue) throws Exception {
+		searvhValue = new String(searvhValue.getBytes("ISO-8859-1"), "UTF-8");
+		EUDataGridResult result = branchService.searchBranchByShortName(page,
+				rows, searvhValue);
+		return result;
+	}
+
+	// 根据机构name查找
+	@RequestMapping("/search_branch_by_name")
+	@ResponseBody
+	public EUDataGridResult searchBranchByName(Integer page, Integer rows,
+			String searchValue) throws Exception {
+		searchValue = new String(searchValue.getBytes("ISO-8859-1"), "UTF-8");
+		EUDataGridResult result = branchService.searchBranchByName(page, rows,
+				searchValue);
+		return result;
+	}
 }
