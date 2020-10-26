@@ -108,7 +108,7 @@ function doSearch_branch(value,name){ //用户输入用户名,点击搜素,触�
     	var sels = branchList.datagrid("getSelections");
     	var ids = [];
     	for(var i in sels){
-    		ids.push(sels[i].branchId);
+    		ids.push(sels[i].id);
     	}
     	ids = ids.join(","); 
     	
